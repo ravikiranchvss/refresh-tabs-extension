@@ -1,0 +1,27 @@
+{
+	"manifest_version": 3,
+	"name": "Auto Clear Data and Refresh",
+	"version": "1.0",
+	"description": "Clears all site data and refreshes the page every 5 minutes.",
+	"permissions": [
+	  "cookies",
+	  "storage",
+	  "browsingData",
+	  "tabs",
+	  "alarms"
+	],
+	"background": {
+	  "service_worker": "background-using-alarm.js"
+	},
+	"content_scripts": [
+	  {
+		"matches": ["<all_urls>"],
+		"js": ["content.js"]
+	  }
+	],
+	"host_permissions": [
+	  "http://*/*",
+	  "https://*/*"
+	]
+  }
+  

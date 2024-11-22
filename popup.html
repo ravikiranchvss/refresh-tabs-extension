@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Auto Clear and Refresh</title>
+  <style>
+    body { width: 200px; font-family: Arial, sans-serif; }
+    button { padding: 10px; font-size: 16px; }
+  </style>
+</head>
+<body>
+  <h3>Clear and Refresh</h3>
+  <button id="toggle">Disable</button>
+  <script>
+    let isActive = true;
+
+    document.getElementById("toggle").addEventListener("click", function() {
+      isActive = !isActive;
+      chrome.runtime.sendMessage({ action: isActive ? 'start' : 'stop' });
+      document.getElementById("toggle").textContent = isActive ? "Disable" : "Enable";
+    });
+  </script>
+</body>
+</html>
